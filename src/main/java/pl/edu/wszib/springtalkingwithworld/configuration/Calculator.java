@@ -21,7 +21,7 @@ public class Calculator {
     @GetMapping(value = "/ratio")
     public ResponseEntity ratio(@RequestParam("numbers") int[] numbers){
 
-            return ResponseEntity.ok(Arrays.stream(numbers).reduce(1, (x,y)->x*y));
+            return ResponseEntity.ok(Arrays.stream(numbers).reduce((x,y)->x*y));
 
     }
 
@@ -35,9 +35,15 @@ public class Calculator {
     @GetMapping(value = "/odd")
     public ResponseEntity odd(@RequestParam("numbers") int[] numbers){
 
-        return ResponseEntity.ok(Arrays.stream(numbers).reduce(1, (x,y)->y-x));
+        return ResponseEntity.ok(Arrays.stream(numbers).reduce((x,y)->x-y));
 
     }
+
+    @GetMapping(value = "/divide")
+    public ResponseEntity div(@RequestParam("numbers") int[] numbers){
+        return ResponseEntity.ok(Arrays.stream(numbers).filter(i-> i != 0).reduce((x,y)->x/y));
+    }
+
 
 
 }
