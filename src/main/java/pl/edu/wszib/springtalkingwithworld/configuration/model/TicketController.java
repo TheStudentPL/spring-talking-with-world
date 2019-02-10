@@ -10,21 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Restauracja {
 
-    public static double koszt (Klient klient){
-        double wynik = 25;
-        if(klient.osobaTowarzyszaca){
-            wynik+=15;
+    @Controller
+    @RequestMapping("/bilety")
+    public static class TicketController {
+
+        private Map<String, Bilet> mapa = new HashMap<>();
+
+        @GetMapping("/{id}")
+        public ResponseEntity<Bilet> odbierz(@PathVariable String id){
+            return ResponseEntity.ok(bilet);
         }
-        if (klient.dziecko){
-            wynik+=40;
+
+        @PostMapping
+        public ResponseEntity dodaj(Bilet){
+            mapa.put(bilet.id, bilet);
+            return ResponseEntity.ok().build();
+
         }
-        if (klient.zwierze){
-            wynik+=20;
-        }
-    return wynik;
+
     }
-
-
 

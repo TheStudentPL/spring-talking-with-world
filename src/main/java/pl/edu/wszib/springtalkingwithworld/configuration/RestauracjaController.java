@@ -33,7 +33,6 @@ public class RestauracjaController {
                             @RequestParam (required = false) boolean osobaTowarzyszaca,
                             @RequestParam (required = false) boolean zwierze, @RequestParam (required = false) boolean dziecko)
     {
-        klients.add(new Klient(imie, osobaTowarzyszaca, dziecko, zwierze));
         return ResponseEntity.ok().build();
     }
 
