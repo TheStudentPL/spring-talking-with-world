@@ -1,0 +1,8 @@
+{
+   "imie" : "Adam",
+   "szkola":  {
+    "nazwa" : "SP 11",
+    "adres" : "Zielona 44"
+  },
+  "oceny" : [5,5,5]
+}
